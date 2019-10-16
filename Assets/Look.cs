@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class Look : MonoBehaviour
 {
-    public float L_HSpeed = 2f;
-    public float L_VSpeed = 2f;
-    public float viewrange = 85;
+    private float X;
+    private float Y;
 
-    private float yaw = 0f;
-    private float pitch = 0f;
-    private Transform maincamera;
+    public float Sensitivity;
 
-    void Start()
+    void Awake()
     {
-        yaw = transform.rotation.eulerAngles.y;
-        pitch = transform.rotation.eulerAngles.z;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        maincamera = transform.GetChild(0);
+        Vector3 euler = transform.rotation.eulerAngles;
+        X = euler.x;
+        Y = euler.y;
     }
 
     void Update()
     {
-        yaw += L_HSpeed * Input.GetAxisRaw("Mouse X");
-        pitch -= L_VSpeed * Input.GetAxisRaw("Mouse Y");
-        pitch = Mathf.Clamp(pitch, -viewrange, viewrange);
-        transform.localEulerAngles = new Vector3(0f, yaw, 0f);
-        maincamera.localEulerAngles = new Vector3(pitch, 0, 0f);
+        const float MIN_X = 0.0f;
+        const float MAX_X = 360.0f;
+        const float MIN_Y = -90.0f;
+        const float MAX_Y = 90.0f;
+
+        X += Input.GetAxis("Mouse X") * (Sensitivity * Time.deltaTime);
+        if (X < MIN_X) X += MAX_X;
+        else if (X > MAX_X) X -= MAX_X;
+        Y -= Input.GetAxis("Mouse Y") * (Sensitivity * Time.deltaTime);
+        if (Y < MIN_Y) Y = MIN_Y;
+        else if (Y > MAX_Y) Y = MAX_Y;
+
+        transform.rotation = Quaternion.Euler(Y, X, 0.0f);
     }
 }
