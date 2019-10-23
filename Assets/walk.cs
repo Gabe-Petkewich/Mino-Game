@@ -9,6 +9,7 @@ public class walk : MonoBehaviour
     public float maxSpeed = 15f;
     public Vector3 vel;
     public float canJump = 0f;
+    public float stamina = 30f;
     // Use this for initialization
     void Start()
     {
@@ -27,15 +28,32 @@ public class walk : MonoBehaviour
             canJump = Time.time + 0.7f;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && speed < maxSpeed)
+        if (Input.GetKey(KeyCode.LeftShift) && speed < maxSpeed && stamina > 0)
         {
-            speed = speed + 10f * Time.deltaTime;
+            speed += (10f * Time.deltaTime);
+            stamina -= (10f * Time.deltaTime);
+        }
+
+        else if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
+        {
+            stamina -= (10f * Time.deltaTime);
+        }
+
+        else if (Input.GetKey(KeyCode.LeftShift) && stamina < 0 && speed > 5f)
+        {
+            speed -= (10f * Time.deltaTime);
         }
 
         else if (!Input.GetKey(KeyCode.LeftShift) && speed > 5f)
         {
             speed = speed - 10f * Time.deltaTime;
         }
+
+        if (!Input.GetKey(KeyCode.LeftShift) && stamina < 30f)
+        {
+            stamina += 5f * Time.deltaTime;
+        }
+
 
         if (Input.GetKey("a") )
         {
@@ -57,11 +75,7 @@ public class walk : MonoBehaviour
             transform.Translate(Vector3.right * Time.deltaTime * speed);
         }
 
-        //forces player to stop moving if no buttons are pressed
-        //else
-        //{
-        //    rb.angularVelocity = Vector3.zero;
-        //}
+       
 
     }
 
