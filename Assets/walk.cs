@@ -6,14 +6,16 @@ public class walk : MonoBehaviour
 {
     Rigidbody rb;
     public float speed = 5f;
-    public float maxSpeed = 15f;
+    float maxSpeed = 20f;
     public Vector3 vel;
     public float canJump = 0f;
     public float stamina = 30f;
+    public GameObject staminaBar;
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        staminaBar = GameObject.Find("StaminaBar");
     }
 
     // Update is called once per frame
@@ -21,6 +23,7 @@ public class walk : MonoBehaviour
     {
         vel = rb.velocity;
         rb.angularVelocity = Vector3.zero;
+        staminaBar.transform.localScale = new Vector3((stamina*0.2f), 0.3f, 1f);
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > canJump)
         {
@@ -30,7 +33,7 @@ public class walk : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && speed < maxSpeed && stamina > 0)
         {
-            speed += (10f * Time.deltaTime);
+            speed += (20f * Time.deltaTime);
             stamina -= (10f * Time.deltaTime);
         }
 
