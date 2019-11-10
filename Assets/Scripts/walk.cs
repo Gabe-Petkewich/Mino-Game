@@ -6,7 +6,7 @@ public class walk : MonoBehaviour
 {
     Rigidbody rb;
     public float speed = 5f;
-    float maxSpeed = 20f;
+    public float maxSpeed = 15f;
     public Vector3 vel;
     public float canJump = 0f;
     public float stamina = 30f;
@@ -14,7 +14,6 @@ public class walk : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
@@ -26,12 +25,12 @@ public class walk : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > canJump)
         {
             rb.AddForce(new Vector3(0, 250, 0), ForceMode.Impulse);
-            canJump = Time.time + 0.7f;
+            canJump = Time.time + 2f;
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && speed < maxSpeed && stamina > 0)
         {
-            speed += (20f * Time.deltaTime);
+            speed += (10f * Time.deltaTime);
             stamina -= (10f * Time.deltaTime);
         }
 
