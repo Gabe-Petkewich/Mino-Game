@@ -9,7 +9,7 @@ public class flashlight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 10f;
+        timer = 60f;
         lt = GetComponent<Light>();
     }
 
