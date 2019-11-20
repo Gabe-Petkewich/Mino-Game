@@ -5,7 +5,7 @@ using UnityEngine;
 public class walk : MonoBehaviour
 {
     Rigidbody rb;
-    public float speed = 5f;
+    public float speed = 7.5f;
     public float maxSpeed = 15f;
     public Vector3 vel;
     public float canJump = 0f;
@@ -42,12 +42,12 @@ public class walk : MonoBehaviour
             stamina -= (10f * Time.deltaTime);
         }
 
-        else if (Input.GetKey(KeyCode.LeftShift) && stamina < 0 && speed > 5f)
+        else if (Input.GetKey(KeyCode.LeftShift) && stamina < 0 && speed > 7.5f)
         {
             speed -= (10f * Time.deltaTime);
         }
 
-        else if (!Input.GetKey(KeyCode.LeftShift) && speed > 5f)
+        else if (!Input.GetKey(KeyCode.LeftShift) && speed > 7.5f)
         {
             speed = speed - 10f * Time.deltaTime;
         }
