@@ -28,7 +28,7 @@ public class walk : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > canJump)
         {
             rb.AddForce(new Vector3(0, 250, 0), ForceMode.Impulse);
-            canJump = Time.time + 2f;
+            canJump = Time.time + 1f;
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && speed < maxSpeed && stamina > 0)
