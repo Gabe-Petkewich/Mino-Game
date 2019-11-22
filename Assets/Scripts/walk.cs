@@ -65,25 +65,14 @@ public class walk : MonoBehaviour
         }
 
 
-        if (Input.GetKey("a") )
+        Vector3 input = transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal");
+
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, 2f))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            input = Vector3.ProjectOnPlane(input, hitInfo.normal);
         }
 
-        if (Input.GetKey("w"))
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        }
-
-        if (Input.GetKey("s"))
-        {
-            transform.Translate(Vector3.forward * Time.deltaTime * -1 * speed);
-        }
-
-        if (Input.GetKey("d"))
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * speed);
-        }
+        transform.Translate(input * Time.deltaTime * speed, Space.World);
 
         
         if (Input.GetKeyDown("t"))
