@@ -82,5 +82,7 @@ public class walk : MonoBehaviour
 
     }
 
+    
+
 
 }
