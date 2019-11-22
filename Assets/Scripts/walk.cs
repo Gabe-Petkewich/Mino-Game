@@ -5,15 +5,17 @@ using UnityEngine;
 public class walk : MonoBehaviour
 {
     Rigidbody rb;
-    public float speed = 5f;
+    public float speed = 7.5f;
     public float maxSpeed = 15f;
     public Vector3 vel;
     public float canJump = 0f;
     public float stamina = 30f;
+    GameObject staminaBar;
     // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        staminaBar = GameObject.Find("StaminaBar");
     }
 
     // Update is called once per frame
@@ -21,11 +23,12 @@ public class walk : MonoBehaviour
     {
         vel = rb.velocity;
         rb.angularVelocity = Vector3.zero;
+        staminaBar.transform.localScale = new Vector3((stamina * 0.2f), 0.3f, 1f);
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > canJump)
         {
             rb.AddForce(new Vector3(0, 250, 0), ForceMode.Impulse);
-            canJump = Time.time + 2f;
+            canJump = Time.time + 1f;
         }
 
         if (Input.GetKey(KeyCode.LeftShift) && speed < maxSpeed && stamina > 0)
@@ -39,12 +42,12 @@ public class walk : MonoBehaviour
             stamina -= (10f * Time.deltaTime);
         }
 
-        else if (Input.GetKey(KeyCode.LeftShift) && stamina < 0 && speed > 5f)
+        else if (Input.GetKey(KeyCode.LeftShift) && stamina < 0 && speed > 7.5f)
         {
             speed -= (10f * Time.deltaTime);
         }
 
-        else if (!Input.GetKey(KeyCode.LeftShift) && speed > 5f)
+        else if (!Input.GetKey(KeyCode.LeftShift) && speed > 7.5f)
         {
             speed = speed - 10f * Time.deltaTime;
         }
@@ -78,6 +81,8 @@ public class walk : MonoBehaviour
        
 
     }
+
+    
 
 
 }
