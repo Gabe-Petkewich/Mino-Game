@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class walk : MonoBehaviour
 {
@@ -10,16 +11,21 @@ public class walk : MonoBehaviour
     public Vector3 vel;
     public float canJump = 0f;
     public float stamina = 30f;
+    private float maxStamina = 30f;
     GameObject staminaBar;
     public GameObject marker;
     public Vector3 test;
     public float playerX, playerZ;
+    public int spawnPoint = 0;
+    GameObject canvas;
     // Use this for initialization
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
         staminaBar = GameObject.Find("StaminaBar");
-        
+        rb = GetComponent<Rigidbody>();
+
+
+
     }
 
     // Update is called once per frame
@@ -59,7 +65,7 @@ public class walk : MonoBehaviour
             speed = speed - 10f * Time.deltaTime;
         }
 
-        if (!Input.GetKey(KeyCode.LeftShift) && stamina < 30f)
+        if (!Input.GetKey(KeyCode.LeftShift) && stamina < maxStamina)
         {
             stamina += 5f * Time.deltaTime;
         }
@@ -79,12 +85,44 @@ public class walk : MonoBehaviour
         {
             Instantiate(marker, new Vector3(playerX, -0.5f, playerZ), Quaternion.identity);
         }
+
         
+
 
 
     }
 
-    
+    void Awake()
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Player");
+
+        if (objs.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+
+    void OnTriggerEnter(Collider collider)
+    {
+        //Awake();
+        if (collider.gameObject.tag == "KillZone")
+        {
+            gameObject.transform.position = new Vector3(-31.72f, 2.14f, -15.06f);
+        }
+
+        if(collider.gameObject.tag == "JumpComplete")
+        {
+            maxStamina += 10f;
+            SceneManager.LoadScene("idk2");
+            gameObject.transform.position = new Vector3(-9.8f, 1.87f, 19.3f);
+        }
+    }
+
+
+
 
 
 }
