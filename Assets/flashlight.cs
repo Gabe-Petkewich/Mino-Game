@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class flashlight : MonoBehaviour
 {
-    public float timer;
+    private float timer;
+    public float batteryTime;
     public Light lt;
     // Start is called before the first frame update
     void Start()
     {
-        timer = 60f;
+        batteryTime = 60f;
+        timer = batteryTime;
         lt = GetComponent<Light>();
     }
 
@@ -19,23 +21,23 @@ public class flashlight : MonoBehaviour
         timer -= 1f * Time.deltaTime;
 
 
-        if(timer <= 6f && timer >= 5.9f)
+        if(timer <= 4f && timer >= 3.9f)
         {
             lt.intensity = 0;
         }
-        if (timer <= 5.9f && timer >= 5.8f)
+        if (timer <= 3.9f && timer >= 3.8f)
         {
             lt.intensity = 5f;
         }
-        if (timer <= 5.8f && timer >= 5.7f)
+        if (timer <= 3.8f && timer >= 3.7f)
         {
             lt.intensity = 0;
         }
-        if (timer <= 5.7f && timer >= 5.6f)
+        if (timer <= 3.7f && timer >= 3.6f)
         {
             lt.intensity = 5f;
         }
-        if (timer <= 5.6f && timer >= 5.5f)
+        if (timer <= 3.6f && timer >= 3.5f)
         {
             lt.intensity = 0;
         }
@@ -43,9 +45,13 @@ public class flashlight : MonoBehaviour
         if(timer <= 0)
         {
             lt.intensity = 5f;
-            timer = 60f;
+            timer = batteryTime;
         }
 
+    }
 
+    public void setBatteryTime(float time)
+    {
+        batteryTime = time;
     }
 }

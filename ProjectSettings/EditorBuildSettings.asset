@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JumpPuzzle.unity
     guid: 6627861c1ec9f1f40acd8b360c9c30d5
+  - enabled: 1
+    path: Assets/Scenes/JumpPuzzle 2.unity
+    guid: addbcd15556cbdf45b93e8cf2657d1f1
   m_configObjects: {}
