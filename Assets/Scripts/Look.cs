@@ -30,6 +30,6 @@ public class Look : MonoBehaviour
         if (Y < MIN_Y) Y = MIN_Y;
         else if (Y > MAX_Y) Y = MAX_Y;
 
-        transform.rotation = Quaternion.Euler(Y, X, 0.0f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Y, X, 0.0f), Time.deltaTime * 5);
     }
 }

@@ -9,6 +9,8 @@ public class minotaur : MonoBehaviour
     public Transform goal;
     public GameObject player;
     private NavMeshAgent agent;
+    public float delay;
+    
 
     void Start()
     {
@@ -19,7 +21,13 @@ public class minotaur : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        goal = player.transform;
-        agent.SetDestination(goal.position);
+        if(delay >= 1)
+        {
+            goal = player.transform;
+            agent.SetDestination(goal.position);
+            delay = 0;
+        }
+        delay += Time.deltaTime * 1;       
+
     }
 }
