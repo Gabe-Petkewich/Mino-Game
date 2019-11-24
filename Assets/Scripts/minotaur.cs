@@ -9,19 +9,33 @@ public class minotaur : MonoBehaviour
     public Transform goal;
     public GameObject player;
     private NavMeshAgent agent;
-    public float delay;
-    
+    public float timer, delay, gruntDelay;
+    public AudioClip bullGrunt;
+    AudioSource audioSource;
+
 
     void Start()
     {
+        timer = 0;
         player = GameObject.FindWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
+        gruntDelay = 15f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(delay >= 1)
+        timer += Time.deltaTime;
+
+        if(timer >= gruntDelay)
+        {
+            audioSource.PlayOneShot(bullGrunt, 1f);
+            timer = 0;
+        }
+        
+
+        if (delay >= 1)
         {
             goal = player.transform;
             agent.SetDestination(goal.position);
