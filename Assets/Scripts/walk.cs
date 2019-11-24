@@ -26,7 +26,9 @@ public class walk : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         flashLight = GameObject.Find("FlashLight");
         flashlightScript = flashLight.GetComponent<flashlight>();
-       
+
+        
+
 
     }
 
@@ -119,6 +121,7 @@ public class walk : MonoBehaviour
                 maxStamina += 10f;
                 SceneManager.LoadScene("idk2");
                 gameObject.transform.position = new Vector3(-9.8f, 1.87f, 19.3f);
+                gameObject.transform.eulerAngles = new Vector3(180f, 0, 0);
                 break;
             case "Jump2Complete":
                 flashlightScript.setBatteryTime(70f);

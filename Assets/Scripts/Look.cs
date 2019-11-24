@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class Look : MonoBehaviour
 {
-    private float X;
-    private float Y;
+    public float X;
+    public float Y;
 
     public float Sensitivity;
 
+    public Vector3 euler;
+
+    void Start()
+    {
+        transform.eulerAngles = new Vector3(transform.eulerAngles.y, transform.eulerAngles.x, 0);
+        euler = transform.rotation.eulerAngles;
+        X = euler.x;
+        Y = euler.y;
+    }
+
     void Awake()
     {
-        Vector3 euler = transform.rotation.eulerAngles;
+        euler = transform.rotation.eulerAngles;
         X = euler.x;
         Y = euler.y;
     }
