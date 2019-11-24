@@ -8,17 +8,22 @@ public class walk : MonoBehaviour
     Rigidbody rb;
     private float speed = 7.5f;
     private float maxSpeed = 15f;
-    public Vector3 vel;
     private float canJump = 0f;
     private float stamina = 30f;
     private float maxStamina = 30f;
-    GameObject staminaBar;
-    public GameObject marker;
-    private Vector3 test;
     private float playerX, playerZ;
-    private int spawnPoint = 0;
+    
+    private GameObject staminaBar;
+    public GameObject marker;
     public GameObject flashLight;
+    public Vector3 vel;
+    private Vector3 test;
+   
+    private int spawnPoint = 0;
+    
     flashlight flashlightScript;
+    minotaurSpawner minotaurSpawnerScript;
+
     // Use this for initialization
     void Start()
     {
@@ -26,10 +31,7 @@ public class walk : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         flashLight = GameObject.Find("FlashLight");
         flashlightScript = flashLight.GetComponent<flashlight>();
-
-        
-
-
+        minotaurSpawnerScript = gameObject.GetComponent<minotaurSpawner>();
     }
 
     // Update is called once per frame
@@ -122,17 +124,21 @@ public class walk : MonoBehaviour
                 SceneManager.LoadScene("idk2");
                 gameObject.transform.position = new Vector3(-9.8f, 1.87f, 19.3f);
                 gameObject.transform.eulerAngles = new Vector3(180f, 0, 0);
+                minotaurSpawnerScript.resetMinotaur();
                 break;
             case "Jump2Complete":
                 flashlightScript.setBatteryTime(70f);
                 SceneManager.LoadScene("idk2");
                 gameObject.transform.position = new Vector3(141.78f, 1.87f, 31.5f);
+                minotaurSpawnerScript.resetMinotaur();
                 break;
 
 
         }
 
     }
+
+
 
 
 

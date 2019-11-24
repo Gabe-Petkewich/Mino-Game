@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 86a82178ee0e73049bba98dd941bcae6
+labels:
+- Ground
+- Nature
+- Pattern
+- Rock
+- Stone
+- Terrain
+- Lava
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
