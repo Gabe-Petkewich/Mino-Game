@@ -106,15 +106,15 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 1
-    agentHeight: 2
+    agentRadius: 2
+    agentHeight: 3
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.33333334
+    cellSize: 0.6666667
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -7216,7 +7216,7 @@ PrefabInstance:
     - target: {fileID: 1746359900774611909, guid: 4aa4fb7468e4a2f4685e44313988f8c1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1746359900774611909, guid: 4aa4fb7468e4a2f4685e44313988f8c1,
         type: 3}
@@ -7912,7 +7912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnFlag: 0
   spawn: 0
-  minotaur: {fileID: 6277796900972488127, guid: 268820aca7fe4a648bcff6a8c4666849,
+  minotaur: {fileID: 6502227255591080869, guid: 304fd3ce1b2761443ad718964dbe4049,
     type: 3}
 --- !u!1001 &649478165
 PrefabInstance:
@@ -20873,7 +20873,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -93.752, y: -30, z: -0.000015258789}
 --- !u!4 &1857618064 stripped
 Transform:
@@ -22692,7 +22692,7 @@ PrefabInstance:
     - target: {fileID: 6870114895713865506, guid: 4da58091df096494dafb5bb0e2c6ebea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6870114895713865506, guid: 4da58091df096494dafb5bb0e2c6ebea,
         type: 3}
@@ -22708,6 +22708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6384463689134341424, guid: 4da58091df096494dafb5bb0e2c6ebea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1642756901, guid: 4da58091df096494dafb5bb0e2c6ebea, type: 3}
@@ -24874,6 +24879,15 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642756903, guid: 4da58091df096494dafb5bb0e2c6ebea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100913985917113778, guid: 4da58091df096494dafb5bb0e2c6ebea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4da58091df096494dafb5bb0e2c6ebea, type: 3}
