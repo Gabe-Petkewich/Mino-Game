@@ -6,25 +6,27 @@ using UnityEngine.SceneManagement;
 public class walk : MonoBehaviour
 {
     Rigidbody rb;
-    public float speed = 7.5f;
-    public float maxSpeed = 15f;
+    private float speed = 7.5f;
+    private float maxSpeed = 15f;
     public Vector3 vel;
-    public float canJump = 0f;
-    public float stamina = 30f;
+    private float canJump = 0f;
+    private float stamina = 30f;
     private float maxStamina = 30f;
     GameObject staminaBar;
     public GameObject marker;
-    public Vector3 test;
-    public float playerX, playerZ;
-    public int spawnPoint = 0;
-    GameObject canvas;
+    private Vector3 test;
+    private float playerX, playerZ;
+    private int spawnPoint = 0;
+    public GameObject flashLight;
+    flashlight flashlightScript;
     // Use this for initialization
     void Start()
     {
         staminaBar = GameObject.Find("StaminaBar");
         rb = GetComponent<Rigidbody>();
-
-
+        flashLight = GameObject.Find("FlashLight");
+        flashlightScript = flashLight.GetComponent<flashlight>();
+       
 
     }
 
@@ -107,18 +109,26 @@ public class walk : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        //Awake();
-        if (collider.gameObject.tag == "KillZone")
+
+        switch (collider.gameObject.tag)
         {
-            gameObject.transform.position = new Vector3(-31.72f, 2.14f, -15.06f);
+            case "KillZone":
+                gameObject.transform.position = new Vector3(-31.72f, 2.14f, -15.06f);
+                break;
+            case "JumpComplete":
+                maxStamina += 10f;
+                SceneManager.LoadScene("idk2");
+                gameObject.transform.position = new Vector3(-9.8f, 1.87f, 19.3f);
+                break;
+            case "Jump2Complete":
+                flashlightScript.setBatteryTime(70f);
+                SceneManager.LoadScene("idk2");
+                gameObject.transform.position = new Vector3(141.78f, 1.87f, 31.5f);
+                break;
+
+
         }
 
-        if(collider.gameObject.tag == "JumpComplete")
-        {
-            maxStamina += 10f;
-            SceneManager.LoadScene("idk2");
-            gameObject.transform.position = new Vector3(-9.8f, 1.87f, 19.3f);
-        }
     }
 
 
