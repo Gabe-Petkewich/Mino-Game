@@ -19,8 +19,14 @@ public class DontDestroy : MonoBehaviour
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Canvas");
+        GameObject[] music = GameObject.FindGameObjectsWithTag("Music");
 
         if (objs.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+
+        if (music.Length > 1)
         {
             Destroy(gameObject);
         }

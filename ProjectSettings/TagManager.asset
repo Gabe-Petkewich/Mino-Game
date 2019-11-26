@@ -11,6 +11,8 @@ TagManager:
   - JumpComplete
   - Canvas
   - Jump2Complete
+  - Music
+  - Jump3Complete
   layers:
   - Default
   - TransparentFX

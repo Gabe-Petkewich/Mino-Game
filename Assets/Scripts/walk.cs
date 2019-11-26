@@ -18,8 +18,6 @@ public class walk : MonoBehaviour
     public GameObject flashLight;
     public Vector3 vel;
     private Vector3 test;
-   
-    private int spawnPoint = 0;
     
     flashlight flashlightScript;
     minotaurSpawner minotaurSpawnerScript;
@@ -44,33 +42,39 @@ public class walk : MonoBehaviour
         playerZ = test.z;
         staminaBar.transform.localScale = new Vector3((stamina * 0.2f), 0.3f, 1f);
 
+        //Jump
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > canJump)
         {
             rb.AddForce(new Vector3(0, 250, 0), ForceMode.Impulse);
             canJump = Time.time + 1f;
         }
 
+        //Sprint
         if (Input.GetKey(KeyCode.LeftShift) && speed < maxSpeed && stamina > 0)
         {
             speed += (10f * Time.deltaTime);
             stamina -= (10f * Time.deltaTime);
         }
 
+        //Sprint at max speed
         else if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
         {
             stamina -= (10f * Time.deltaTime);
         }
 
+        //No sprint when stamina = 0
         else if (Input.GetKey(KeyCode.LeftShift) && stamina < 0 && speed > 7.5f)
         {
             speed -= (10f * Time.deltaTime);
         }
 
+        //Reduce speed when shift is not held down
         else if (!Input.GetKey(KeyCode.LeftShift) && speed > 7.5f)
         {
             speed = speed - 10f * Time.deltaTime;
         }
 
+        //Regain stamina when shift not held down
         if (!Input.GetKey(KeyCode.LeftShift) && stamina < maxStamina)
         {
             stamina += 5f * Time.deltaTime;
@@ -132,8 +136,37 @@ public class walk : MonoBehaviour
                 gameObject.transform.position = new Vector3(141.78f, 1.87f, 31.5f);
                 minotaurSpawnerScript.resetMinotaur();
                 break;
+            case "Jump3Complete":
+                maxStamina += 10f;
+                SceneManager.LoadScene("idk2");
+                gameObject.transform.position = new Vector3(99.04f, 1.87f, 187f);
+                minotaurSpawnerScript.resetMinotaur();
+                break;
+        }
 
-
+        switch (collider.gameObject.name)
+        {
+            case "JumpTrigger":
+                SceneManager.LoadScene("JumpPuzzle");
+                minotaurSpawnerScript.dontSpawnMinotaur();
+                break;
+            case "Jump2Trigger":
+                SceneManager.LoadScene("JumpPuzzle 2");
+                minotaurSpawnerScript.dontSpawnMinotaur();
+                break;
+            case "Jump3Trigger":
+                SceneManager.LoadScene("JumpPuzzle 3");
+                minotaurSpawnerScript.dontSpawnMinotaur();
+                gameObject.transform.position = new Vector3(-31.52f, 3.629f, -14.62801f);
+                break;
+            case "TileTrigger":
+                SceneManager.LoadScene("TilePuzzle");
+                gameObject.transform.position = new Vector3(34.24f, 1.87f, 9.08f);
+                break;
+            case "EndTrigger":
+                SceneManager.LoadScene("Arena");
+                gameObject.transform.position = new Vector3(-10f, 1.87f, 11.25f);
+                break;
         }
 
     }
