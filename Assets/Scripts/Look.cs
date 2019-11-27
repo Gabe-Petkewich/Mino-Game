@@ -17,6 +17,7 @@ public class Look : MonoBehaviour
         euler = transform.rotation.eulerAngles;
         X = euler.x;
         Y = euler.y;
+        Cursor.visible = false;
     }
 
     void Awake()

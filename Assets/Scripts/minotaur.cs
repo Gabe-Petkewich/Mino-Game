@@ -23,9 +23,9 @@ public class minotaur : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         audioSource = GetComponent<AudioSource>();
-        minoGrunt1Delay = 20f;
-        minoGrunt2Delay = 21f;
-        minoCmereDelay = 22f;
+        minoGrunt1Delay = 30f;
+        minoGrunt2Delay = 31f;
+        minoCmereDelay = 32f;
         minoGrunt1Played = minoGrunt2Played = minoCmerePlayed = false;
     }
 
@@ -35,7 +35,7 @@ public class minotaur : MonoBehaviour
         timer += Time.deltaTime;
         audioClipDelay += Time.deltaTime;
 
-        if ((timer % minoGrunt1Delay >= 0 && timer % minoGrunt1Delay <= 0.1f) && audioClipDelay >= 5f && minoGrunt1Played == false)
+        if ((timer % minoGrunt1Delay >= 0 && timer % minoGrunt1Delay <= 0.1f) && audioClipDelay >= 10f && minoGrunt1Played == false)
         {
             audioSource.PlayOneShot(minoGrunt1, 1f);
             audioClipDelay = 0;
@@ -44,7 +44,7 @@ public class minotaur : MonoBehaviour
             minoCmerePlayed = false;
         }
 
-        if ((timer % minoGrunt2Delay >= 0 && timer % minoGrunt2Delay <= 0.1f) && audioClipDelay >= 5f && minoGrunt2Played == false)
+        if ((timer % minoGrunt2Delay >= 0 && timer % minoGrunt2Delay <= 0.1f) && audioClipDelay >= 10f && minoGrunt2Played == false)
         {
             audioSource.PlayOneShot(minoGrunt2, 1f);
             audioClipDelay = 0;
@@ -53,7 +53,7 @@ public class minotaur : MonoBehaviour
             minoCmerePlayed = false;
         }
 
-        if ((timer % minoCmereDelay >= 0 && timer % minoCmereDelay <= 0.1f) && audioClipDelay >= 5f && minoCmerePlayed == false)
+        if ((timer % minoCmereDelay >= 0 && timer % minoCmereDelay <= 0.1f) && audioClipDelay >= 10f && minoCmerePlayed == false)
         {
             audioSource.PlayOneShot(minoCmere, 1f);
             audioClipDelay = 0;

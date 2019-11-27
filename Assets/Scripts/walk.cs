@@ -14,23 +14,21 @@ public class walk : MonoBehaviour
     private float playerX, playerZ;
     
     private GameObject staminaBar;
-    public GameObject minotaur;
+    private GameObject staminaText;
     public GameObject marker;
-    public GameObject flashLight;
     public Vector3 vel;
     private Vector3 test;
-    
-    flashlight flashlightScript;
-    minotaurSpawner minotaurSpawnerScript;
+    private float staminaTime;
+
 
     // Use this for initialization
     void Start()
     {
         staminaBar = GameObject.Find("StaminaBar");
+        staminaText = GameObject.Find("StaminaIncreased");
         rb = GetComponent<Rigidbody>();
-        flashLight = GameObject.Find("FlashLight");
-        flashlightScript = flashLight.GetComponent<flashlight>();
-        minotaurSpawnerScript = gameObject.GetComponent<minotaurSpawner>();
+        staminaText.SetActive(false);
+        staminaTime = 0;
     }
 
     // Update is called once per frame
@@ -115,75 +113,12 @@ public class walk : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-
-    void OnTriggerEnter(Collider collider)
+    public IEnumerator increaseStamina()
     {
-
-        switch (collider.gameObject.tag)
-        {
-            case "KillZone":
-                gameObject.transform.position = new Vector3(-31.72f, 2.14f, -15.06f);
-                break;
-            case "JumpComplete":
-                maxStamina += 10f;
-                SceneManager.LoadScene("idk2");
-                gameObject.transform.position = new Vector3(-9.8f, 1.87f, 19.3f);
-                gameObject.transform.eulerAngles = new Vector3(180f, 0, 0);
-                minotaurSpawnerScript.resetMinotaur(0);
-                break;
-            case "Jump2Complete":
-                flashlightScript.setBatteryTime(70f);
-                SceneManager.LoadScene("idk2");
-                gameObject.transform.position = new Vector3(141.78f, 1.87f, 31.5f);
-                minotaurSpawnerScript.resetMinotaur(0);
-                break;
-            case "Jump3Complete":
-                maxStamina += 10f;
-                SceneManager.LoadScene("idk2");
-                gameObject.transform.position = new Vector3(99.04f, 1.87f, 187f);
-                minotaurSpawnerScript.resetMinotaur(0);
-                break;
-        }
-
-        switch (collider.gameObject.name)
-        {
-            case "JumpTrigger":
-                SceneManager.LoadScene("JumpPuzzle");
-                minotaurSpawnerScript.dontSpawnMinotaur();
-                break;
-            case "Jump2Trigger":
-                SceneManager.LoadScene("JumpPuzzle 2");
-                minotaurSpawnerScript.dontSpawnMinotaur();
-                break;
-            case "Jump3Trigger":
-                SceneManager.LoadScene("JumpPuzzle 3");
-                minotaurSpawnerScript.dontSpawnMinotaur();
-                gameObject.transform.position = new Vector3(-31.52f, 3.629f, -14.62801f);
-                break;
-            case "TileTrigger":
-                SceneManager.LoadScene("TilePuzzle");
-                gameObject.transform.position = new Vector3(34.24f, 1.87f, 9.08f);
-                break;
-            case "TileComplete":
-                maxStamina += 10f;
-                SceneManager.LoadScene("idk2");
-                gameObject.transform.position = new Vector3(-10.54f, 1.87f, 174f);
-                minotaurSpawnerScript.resetMinotaur(0);
-                break;
-            case "EndTrigger":
-                SceneManager.LoadScene("Arena");
-                gameObject.transform.position = new Vector3(-10f, 1.87f, 11.25f);
-                minotaurSpawnerScript.resetMinotaur(19.5f);
-                Instantiate(minotaur, new Vector3(-10f, 1.5f, -21f), Quaternion.identity);
-                break;
-        }
+        maxStamina += 10;
+        staminaText.SetActive(true);
+        yield return new WaitForSeconds(2);
+        staminaText.SetActive(false);
 
     }
-
-
-
-
-
-
-
 }

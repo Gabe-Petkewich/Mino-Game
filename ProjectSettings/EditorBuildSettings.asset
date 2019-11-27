@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TilePuzzle.unity
     guid: 3a5ed37c196296f418679ef5ab888531
+  - enabled: 1
+    path: Assets/Scenes/TilePuzzle 2.unity
+    guid: af635958988164d4eabaf137af804b85
   m_configObjects: {}
