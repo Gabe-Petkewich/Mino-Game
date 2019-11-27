@@ -14,6 +14,7 @@ public class walk : MonoBehaviour
     private float playerX, playerZ;
     
     private GameObject staminaBar;
+    public GameObject minotaur;
     public GameObject marker;
     public GameObject flashLight;
     public Vector3 vel;
@@ -128,19 +129,19 @@ public class walk : MonoBehaviour
                 SceneManager.LoadScene("idk2");
                 gameObject.transform.position = new Vector3(-9.8f, 1.87f, 19.3f);
                 gameObject.transform.eulerAngles = new Vector3(180f, 0, 0);
-                minotaurSpawnerScript.resetMinotaur();
+                minotaurSpawnerScript.resetMinotaur(0);
                 break;
             case "Jump2Complete":
                 flashlightScript.setBatteryTime(70f);
                 SceneManager.LoadScene("idk2");
                 gameObject.transform.position = new Vector3(141.78f, 1.87f, 31.5f);
-                minotaurSpawnerScript.resetMinotaur();
+                minotaurSpawnerScript.resetMinotaur(0);
                 break;
             case "Jump3Complete":
                 maxStamina += 10f;
                 SceneManager.LoadScene("idk2");
                 gameObject.transform.position = new Vector3(99.04f, 1.87f, 187f);
-                minotaurSpawnerScript.resetMinotaur();
+                minotaurSpawnerScript.resetMinotaur(0);
                 break;
         }
 
@@ -163,9 +164,17 @@ public class walk : MonoBehaviour
                 SceneManager.LoadScene("TilePuzzle");
                 gameObject.transform.position = new Vector3(34.24f, 1.87f, 9.08f);
                 break;
+            case "TileComplete":
+                maxStamina += 10f;
+                SceneManager.LoadScene("idk2");
+                gameObject.transform.position = new Vector3(-10.54f, 1.87f, 174f);
+                minotaurSpawnerScript.resetMinotaur(0);
+                break;
             case "EndTrigger":
                 SceneManager.LoadScene("Arena");
                 gameObject.transform.position = new Vector3(-10f, 1.87f, 11.25f);
+                minotaurSpawnerScript.resetMinotaur(19.5f);
+                Instantiate(minotaur, new Vector3(-10f, 1.5f, -21f), Quaternion.identity);
                 break;
         }
 

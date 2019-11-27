@@ -19,7 +19,7 @@ public class minotaurSpawner : MonoBehaviour
 
     void Awake()
     {
-        spawnFlag = true;
+        //spawnFlag = true;
     }
 
     // Update is called once per frame
@@ -27,12 +27,20 @@ public class minotaurSpawner : MonoBehaviour
     {
         spawn += Time.deltaTime * 1;
 
-        if (spawn >= 10f && spawnFlag == false)
+        if (spawn >= 10f &&  spawn < 12f && spawnFlag == false)
         {
             spawnFlag = true;
             Instantiate(minotaur, new Vector3(-28.2f, 1.5f, -12.5f), Quaternion.identity);
         }
+
+        if (spawn >= 20f && spawnFlag == false)
+        {
+            spawnFlag = true;
+            Instantiate(minotaur, new Vector3(56.69f, 1.5f, 11.16952f), Quaternion.identity);
+            minotaur.transform.eulerAngles = new Vector3(0, 90f, 0);
+        }
     }
+
 
     public void dontSpawnMinotaur()
     {
@@ -40,10 +48,10 @@ public class minotaurSpawner : MonoBehaviour
         spawn = 0;
     }
 
-    public void resetMinotaur()
+    public void resetMinotaur(float time)
     {
         spawnFlag = false;
-        spawn = 0;
+        spawn = time;
     }
 
 
