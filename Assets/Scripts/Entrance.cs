@@ -107,7 +107,7 @@ public class Entrance : MonoBehaviour
             case "EndTrigger":
                 SceneManager.LoadScene("Arena");
                 gameObject.transform.position = new Vector3(-10f, 1.87f, 11.25f);
-                minotaurSpawnerScript.resetMinotaur(19.5f);
+                minotaurSpawnerScript.resetMinotaur(39.5f);
                 Instantiate(minotaur, new Vector3(-10f, 1.5f, -21f), Quaternion.identity);
                 break;
         }

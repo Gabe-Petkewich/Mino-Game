@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class TileTester : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+    Shader shader1;
+    Vector3 checkpoint;
+    bool reached1;
 
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
+        shader1 = Shader.Find("UI/Unlit/Transparent");
+        checkpoint = new Vector3(34.24f, 1.87f, 9.08f);
+        reached1 = false;
 
     }
 
@@ -21,8 +22,19 @@ public class TileTester : MonoBehaviour
         switch (collider.gameObject.tag)
         {
             case "Incorrect":
-                collider.GetComponent<MeshRenderer>().material.color = Color.red;
-                gameObject.transform.position = new Vector3(34.24f, 1.87f, 9.08f);
+                gameObject.transform.position = checkpoint;
+                break;
+            case "Correct":
+                collider.GetComponent<MeshRenderer>().material.shader = shader1;
+                collider.GetComponent<MeshRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0f);
+                break;
+            case "Checkpoint1":
+                if(reached1 == false) 
+                {
+                    Debug.Log("Entering checkpoint...");
+                    checkpoint = new Vector3(36.09f, 1.87f, 42.33f);
+                    reached1 = true;
+                }
                 break;
         }
     }

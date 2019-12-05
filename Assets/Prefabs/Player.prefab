@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7258242453478571751}
   - component: {fileID: 7258242453478571750}
   - component: {fileID: 7258242453478571769}
+  - component: {fileID: 905204409597420366}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -142,7 +143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marker: {fileID: 1502554797272400917, guid: 6dc9bcc828d369b4eb406fa9e31e68d1, type: 3}
-  flashLight: {fileID: 0}
   vel: {x: 0, y: 0, z: 0}
 --- !u!114 &7258242453478571769
 MonoBehaviour:
@@ -160,6 +160,18 @@ MonoBehaviour:
   spawn: 0
   minotaur: {fileID: 6502227255591080869, guid: 304fd3ce1b2761443ad718964dbe4049,
     type: 3}
+--- !u!114 &905204409597420366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7258242453478571745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc0c6e471bee334e8917fb7d62c90ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7258242453540506252
 GameObject:
   m_ObjectHideFlags: 0

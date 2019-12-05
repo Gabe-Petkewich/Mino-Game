@@ -27,13 +27,13 @@ public class minotaurSpawner : MonoBehaviour
     {
         spawn += Time.deltaTime * 1;
 
-        if (spawn >= 10f &&  spawn < 12f && spawnFlag == false)
+        if (spawn >= 30f &&  spawn < 32f && spawnFlag == false)
         {
             spawnFlag = true;
             Instantiate(minotaur, new Vector3(-28.2f, 1.5f, -12.5f), Quaternion.identity);
         }
 
-        if (spawn >= 20f && spawnFlag == false)
+        if (spawn >= 40f && spawnFlag == false)
         {
             spawnFlag = true;
             Instantiate(minotaur, new Vector3(56.69f, 1.5f, 11.16952f), Quaternion.identity);
