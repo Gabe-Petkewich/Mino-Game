@@ -24431,7 +24431,7 @@ PrefabInstance:
     - target: {fileID: 7258242453478571768, guid: 3c8462dab4468bd4a8271f28fed15d69,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.87
+      value: 1.9277
       objectReference: {fileID: 0}
     - target: {fileID: 7258242453478571768, guid: 3c8462dab4468bd4a8271f28fed15d69,
         type: 3}
@@ -24477,6 +24477,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571768, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571768, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571768, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.8848
       objectReference: {fileID: 0}
     - target: {fileID: 7258242453478571750, guid: 3c8462dab4468bd4a8271f28fed15d69,
         type: 3}
@@ -24577,6 +24592,36 @@ PrefabInstance:
     - target: {fileID: 7258242453540506242, guid: 3c8462dab4468bd4a8271f28fed15d69,
         type: 3}
       propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571749, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.57844806
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571749, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.09937405
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571749, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.085498095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571749, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.085463375
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571749, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258242453478571748, guid: 3c8462dab4468bd4a8271f28fed15d69,
+        type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
