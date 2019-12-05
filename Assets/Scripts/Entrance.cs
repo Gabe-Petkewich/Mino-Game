@@ -10,6 +10,8 @@ public class Entrance : MonoBehaviour
     private GameObject jump1, jump2, jump3;
     private GameObject tile1, tile2;
     public float playerHealth;
+    public float minoHealth;
+    public bool arenaFlag;
 
 
     walk walkScript;
@@ -18,6 +20,7 @@ public class Entrance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        arenaFlag = false;
         playerHealth = 30;
         flashLight = GameObject.Find("FlashLight");
         jump1 = GameObject.Find("Jump Puzzle 1 Entrance");
@@ -118,6 +121,7 @@ public class Entrance : MonoBehaviour
                 break;
             case "EndTrigger":
                 SceneManager.LoadScene("Arena");
+                arenaFlag = true;
                 gameObject.transform.position = new Vector3(-10f, 1.87f, 11.25f);
                 minotaurSpawnerScript.resetMinotaur(39.5f);
                 Instantiate(minotaur, new Vector3(-10f, 1.5f, -21f), Quaternion.identity);
