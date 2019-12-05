@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: 
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/Start Menu.unity
@@ -27,9 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Arena.unity
     guid: cf8f0ea7ce33f9245aa70aa19d55c8de
   - enabled: 1
-    path: Assets/Scenes/TilePuzzle.unity
+    path: Assets/Scenes/TilePuzzle (Old).unity
     guid: 3a5ed37c196296f418679ef5ab888531
   - enabled: 1
     path: Assets/Scenes/TilePuzzle 2.unity
     guid: af635958988164d4eabaf137af804b85
+  - enabled: 1
+    path: Assets/Scenes/TilePuzzle.unity
+    guid: c97fd1392ad7da4408a46e5d258ee95f
   m_configObjects: {}
