@@ -9,6 +9,8 @@ public class Entrance : MonoBehaviour
     public GameObject minotaur;
     private GameObject jump1, jump2, jump3;
     private GameObject tile1, tile2;
+    public float playerHealth;
+
 
     walk walkScript;
     minotaurSpawner minotaurSpawnerScript;
@@ -16,6 +18,7 @@ public class Entrance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerHealth = 30;
         flashLight = GameObject.Find("FlashLight");
         jump1 = GameObject.Find("Jump Puzzle 1 Entrance");
         jump2 = GameObject.Find("Jump Puzzle 2 Entrance");
@@ -28,12 +31,17 @@ public class Entrance : MonoBehaviour
         flashlightScript = flashLight.GetComponent<flashlight>();
     }
 
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(playerHealth == 0)
+        {
+            Debug.Log("You are dead");
+            SceneManager.LoadScene("You Died");
+            playerHealth = 1;
+        }
     }
+
+
 
     void OnTriggerEnter(Collider collider)
     {
@@ -61,6 +69,10 @@ public class Entrance : MonoBehaviour
                 gameObject.transform.position = new Vector3(99.04f, 1.87f, 187f);
                 minotaurSpawnerScript.resetMinotaur(0);
                 walkScript.increaseStamina();
+                break;
+            case "Enemy":
+                Debug.Log("You hit minotaur");
+                playerHealth -= 10f;
                 break;
         }
 

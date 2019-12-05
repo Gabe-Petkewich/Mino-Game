@@ -1056,6 +1056,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theManager: {fileID: 0}
+  backgroundMusic: {fileID: 3809723129297387994, guid: 9d2346faf38a55940be0434f751ce95f,
+    type: 3}
 --- !u!114 &2118688500
 MonoBehaviour:
   m_ObjectHideFlags: 0

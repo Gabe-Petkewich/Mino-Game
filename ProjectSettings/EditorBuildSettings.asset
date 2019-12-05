@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TilePuzzle.unity
     guid: c97fd1392ad7da4408a46e5d258ee95f
+  - enabled: 1
+    path: Assets/Scenes/You Died.unity
+    guid: 2415e8927d64ff048943eb2dd7fbe0e3
   m_configObjects: {}
