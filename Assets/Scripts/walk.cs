@@ -19,6 +19,8 @@ public class walk : MonoBehaviour
     public Vector3 vel;
     private Vector3 test;
     private float staminaTime;
+    public AudioClip punchSound;
+    private AudioSource audioSource;
 
 
     // Use this for initialization
@@ -29,6 +31,7 @@ public class walk : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         staminaText.SetActive(false);
         staminaTime = 0;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,6 +49,13 @@ public class walk : MonoBehaviour
         {
             rb.AddForce(new Vector3(0, 250, 0), ForceMode.Impulse);
             canJump = Time.time + 1f;
+        }
+
+        //Attack on click
+        if (Input.GetMouseButtonDown(0))
+        {
+            audioSource.PlayOneShot(punchSound, 1f);
+
         }
 
         //Sprint
@@ -78,6 +88,7 @@ public class walk : MonoBehaviour
         {
             stamina += 5f * Time.deltaTime;
         }
+
 
 
         Vector3 input = transform.forward * Input.GetAxisRaw("Vertical") + transform.right * Input.GetAxisRaw("Horizontal");
